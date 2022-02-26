@@ -29,7 +29,7 @@ class _MyAppState extends State<MyApp> {
 
   @override // decorator provided by dart
   Widget build(BuildContext context) {
-    var questions = [
+    const questions = [
       {
         'questionText': 'What is your favorite color?',
         'answers': ['Black', 'Red', 'Green', 'Yellow']
@@ -43,6 +43,11 @@ class _MyAppState extends State<MyApp> {
         'answers': ['Max', 'Manu', 'Soul', 'Esaite']
       },
     ];
+
+    // var dummy = const ['Hello'];
+    // dummy.add('Max');
+    // print(dummy);
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
