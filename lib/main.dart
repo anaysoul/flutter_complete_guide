@@ -10,7 +10,10 @@ class MyApp extends StatelessWidget {
   @override // decorator provided by dart 
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Hello World!'),
+      home: Scaffold(
+        appBar: AppBar(title: Text("My First App"),), // AppBar
+        body: Text('Welcome to my first flutter app!'),
+      ),
     );
   }
 }
