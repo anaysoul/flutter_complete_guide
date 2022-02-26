@@ -19,7 +19,7 @@ class MyHomePage extends StatelessWidget {
     Transaction(
         id: 't1', title: 'Yeezy Shoes', amount: 169.99, date: DateTime.now()),
     Transaction(
-        id: 't2', title: 'Groceries', amount: 350.00, date: DateTime.now())
+        id: 't2', title: 'Groceries', amount: 350.99, date: DateTime.now())
   ];
 
   @override
@@ -48,17 +48,31 @@ class MyHomePage extends StatelessWidget {
                       margin:
                           EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black, width: 2)),
+                          border:
+                              Border.all(color: Colors.deepPurple, width: 2)),
                       child: Text(
                         tx.amount.toString(),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.purple,
+                        ),
                       ),
                       padding: EdgeInsets.all(10),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(tx.title),
+                        Text(tx.title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            )),
                         Text(
                           tx.date.toString(),
+                          style: TextStyle(
+                              color: Colors.blueGrey,
+                              fontWeight: FontWeight.bold),
                         )
                       ],
                     ),
