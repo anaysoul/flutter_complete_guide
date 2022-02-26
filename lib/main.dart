@@ -7,8 +7,11 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  var questionIndex = 0;
+
   void answerQuestion() {
-    print('Answer chosen!');
+    questionIndex++;
+    print(questionIndex);
   }
 
   @override // decorator provided by dart
@@ -24,12 +27,12 @@ class MyApp extends StatelessWidget {
         ), // AppBar
         body: Column(
           children: [
-            Text('The question!'),
-            RaisedButton(child: Text('Answer 1'), onPressed: answerQuestion),
-            RaisedButton(
+            Text(questions[questionIndex]),
+            ElevatedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+            ElevatedButton(
                 child: Text('Answer 2'),
                 onPressed: () => print('Answer 2 chosen!')),
-            RaisedButton(
+            ElevatedButton(
               child: Text('Answer 3'),
               onPressed: () {
                 print('Answer 3 chosen!');
