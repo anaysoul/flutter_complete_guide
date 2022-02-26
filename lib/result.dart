@@ -28,9 +28,11 @@ class Result extends StatelessWidget {
         Text(resultPhrase,
             style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
             textAlign: TextAlign.center),
-        FlatButton(
+        TextButton(
             child: Text('Restart Quiz!'),
-            textColor: Color.fromARGB(255, 255, 64, 64),
+            style: ButtonStyle(
+                foregroundColor:
+                    MaterialStateProperty.all<Color>(Colors.lightBlueAccent)),
             onPressed: resetHandler)
       ],
     ));
