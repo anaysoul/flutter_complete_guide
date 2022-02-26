@@ -9,18 +9,19 @@ void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+// private class
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex++;
+      _questionIndex++;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override // decorator provided by dart
@@ -36,8 +37,8 @@ class MyAppState extends State<MyApp> {
         ), // AppBar
         body: Column(
           children: [
-            Text(questions[questionIndex]),
-            ElevatedButton(child: Text('Answer 1'), onPressed: answerQuestion),
+            Text(questions[_questionIndex]),
+            ElevatedButton(child: Text('Answer 1'), onPressed: _answerQuestion),
             ElevatedButton(
                 child: Text('Answer 2'),
                 onPressed: () => print('Answer 2 chosen!')),
