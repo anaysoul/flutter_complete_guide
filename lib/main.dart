@@ -18,6 +18,21 @@ class MyApp extends StatefulWidget {
 
 // private class
 class _MyAppState extends State<MyApp> {
+  final questions = const [
+    {
+      'questionText': 'What is your favorite color?',
+      'answers': ['Black', 'Red', 'Green', 'Yellow']
+    },
+    {
+      'questionText': 'What is your favorite animal?',
+      'answers': ['Bear', 'Rabbit', 'Giraffe', 'Lion']
+    },
+    {
+      'questionText': 'Who is your favorite instructor?',
+      'answers': ['Max', 'Manu', 'Soul', 'Esaite']
+    },
+  ];
+
   var _questionIndex = 0;
 
   void _answerQuestion() {
@@ -25,25 +40,13 @@ class _MyAppState extends State<MyApp> {
       _questionIndex++;
     });
     print(_questionIndex);
+    if (_questionIndex < questions.length) {
+      print('We have more questions!');
+    }
   }
 
   @override // decorator provided by dart
   Widget build(BuildContext context) {
-    const questions = [
-      {
-        'questionText': 'What is your favorite color?',
-        'answers': ['Black', 'Red', 'Green', 'Yellow']
-      },
-      {
-        'questionText': 'What is your favorite animal?',
-        'answers': ['Bear', 'Rabbit', 'Giraffe', 'Lion']
-      },
-      {
-        'questionText': 'Who is your favorite instructor?',
-        'answers': ['Max', 'Manu', 'Soul', 'Esaite']
-      },
-    ];
-
     // var dummy = const ['Hello'];
     // dummy.add('Max');
     // print(dummy);
