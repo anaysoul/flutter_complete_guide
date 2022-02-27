@@ -10,7 +10,7 @@ class Chart extends StatelessWidget {
 
   List<Map<String, Object>> get groupedTransactionValues {
     return List.generate(7, (index) {
-      final weekDay = DateTime.now().subtract(
+      final weekDay = DateTime.now().add(
         Duration(days: index),
       );
       var totalSum = 0.00;
@@ -26,7 +26,10 @@ class Chart extends StatelessWidget {
       // print(DateFormat.E().format(weekDay));
       // print(totalSum);
 
-      return {'day': DateFormat.E().format(weekDay), 'amount': totalSum};
+      return {
+        'day': DateFormat.E().format(weekDay).substring(0, 2),
+        'amount': totalSum
+      };
     });
   }
 
@@ -36,7 +39,10 @@ class Chart extends StatelessWidget {
     return Card(
       elevation: 6,
       margin: EdgeInsets.all(20),
-      child: Row(children: <Widget>[]),
+      child: Row(
+          children: groupedTransactionValues.map((data) {
+        return Text('${data['day']}: ${data['amount']}');
+      }).toList()),
     );
   }
 }
