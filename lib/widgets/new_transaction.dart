@@ -50,6 +50,22 @@ class _NewTransactionState extends State<NewTransaction> {
                     onSubmitted: (_) => submitData(),
                     // onChanged: (val) => amountInput = val,
                   ),
+                  Container(
+                    height: 70,
+                    child: Row(
+                      children: <Widget>[
+                        Text('No date chosen!'),
+                        TextButton(
+                            onPressed: () {},
+                            child: Text('Choose Date',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            style: ButtonStyle(
+                                foregroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Colors.purpleAccent)))
+                      ],
+                    ),
+                  ),
                   ElevatedButton(
                       onPressed: submitData,
                       style: ButtonStyle(
