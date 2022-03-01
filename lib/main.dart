@@ -125,7 +125,8 @@ class _MyHomePageState extends State<MyHomePage> {
             1,
         child: TransactionList(_userTransactions, _deleteTransaction));
 
-    final pageBody = SingleChildScrollView(
+    final pageBody = SafeArea(
+        child: SingleChildScrollView(
       child: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -162,7 +163,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Chart(_recentTransactions))
                   : txListWidget,
           ]),
-    );
+    ));
     return Platform.isIOS
         ? CupertinoPageScaffold(child: pageBody, navigationBar: appBar)
         : Scaffold(
