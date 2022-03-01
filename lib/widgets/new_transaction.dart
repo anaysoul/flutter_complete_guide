@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -57,34 +60,41 @@ class _NewTransactionState extends State<NewTransaction> {
                   left: 10,
                   right: 10,
                   bottom: MediaQuery.of(context).viewInsets.bottom + 10),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Title'),
-                      controller: _titleController,
-                      onSubmitted: (_) => _submitData(),
-                      // onChanged: (val) {
-                      //   titleInput = val;
-                      // },
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Amount'),
-                      controller: _amountController,
-                      keyboardType: TextInputType.number,
-                      onSubmitted: (_) => _submitData(),
-                      // onChanged: (val) => amountInput = val,
-                    ),
-                    Container(
-                      height: 70,
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(_selectedDate == null
-                                ? 'No date chosen!'
-                                : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}'),
-                          ),
-                          TextButton(
+              child:
+                  Column(crossAxisAlignment: CrossAxisAlignment.end, children: <
+                      Widget>[
+                TextField(
+                  decoration: InputDecoration(labelText: 'Title'),
+                  controller: _titleController,
+                  onSubmitted: (_) => _submitData(),
+                  // onChanged: (val) {
+                  //   titleInput = val;
+                  // },
+                ),
+                TextField(
+                  decoration: InputDecoration(labelText: 'Amount'),
+                  controller: _amountController,
+                  keyboardType: TextInputType.number,
+                  onSubmitted: (_) => _submitData(),
+                  // onChanged: (val) => amountInput = val,
+                ),
+                Container(
+                  height: 70,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(_selectedDate == null
+                            ? 'No date chosen!'
+                            : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}'),
+                      ),
+                      Platform.isIOS
+                          ? CupertinoButton(
+                              onPressed: _presentDatePicker,
+                              child: Text('Choose Date',
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                            )
+                          : TextButton(
                               onPressed: _presentDatePicker,
                               child: Text('Choose Date',
                                   style:
@@ -93,16 +103,16 @@ class _NewTransactionState extends State<NewTransaction> {
                                   foregroundColor:
                                       MaterialStateProperty.all<Color>(
                                           Colors.purpleAccent)))
-                        ],
-                      ),
-                    ),
-                    ElevatedButton(
-                        onPressed: _submitData,
-                        style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                                Colors.purple)),
-                        child: Text('Add Transaction'))
-                  ]))),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                    onPressed: _submitData,
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.purple)),
+                    child: Text('Add Transaction'))
+              ]))),
     );
   }
 }
