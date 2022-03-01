@@ -105,13 +105,19 @@ class _MyHomePageState extends State<MyHomePage> {
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final PreferredSizeWidget appBar = Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: const Text('Personal Expenses'),
+            middle: const Text(
+              'Personal Expenses',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  color: Colors.white),
+            ),
             // trailing: CupertinoButton(
             //     child: const Text('Add'),
             //     onPressed: () => _startAddNewTransaction(context)),
             trailing: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
               GestureDetector(
-                  child: Icon(CupertinoIcons.add),
+                  child: Icon(CupertinoIcons.add, color: Colors.white),
                   onTap: () => _startAddNewTransaction(context))
             ]),
             backgroundColor: Color.fromRGBO(103, 58, 183, 1),
