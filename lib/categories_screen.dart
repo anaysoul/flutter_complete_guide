@@ -9,6 +9,7 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('SoulMeal')),
       body: GridView(
+          padding: const EdgeInsets.all(10),
           children: DUMMY_CATEGORIES
               .map((catData) => CategoryItem(catData.title, catData.color))
               .toList(),
