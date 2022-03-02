@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         MealDetailScreen.routeName: (ctx) => MealDetailScreen()
       },
       // for dynamically created routes (more complex projects!)
+      // fallback option as well
       // ignore: missing_return
       onGenerateRoute: (settings) {
         print(settings.arguments);
