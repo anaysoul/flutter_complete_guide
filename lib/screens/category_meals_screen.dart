@@ -61,8 +61,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
                 imageUrl: displayedMeals[index].imageUrl,
                 affordability: displayedMeals[index].affordability,
                 complexity: displayedMeals[index].complexity,
-                duration: displayedMeals[index].duration,
-                removeItem: _removeMeal);
+                duration: displayedMeals[index].duration);
           },
           itemCount: displayedMeals.length),
     );
